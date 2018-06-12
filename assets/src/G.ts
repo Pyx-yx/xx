@@ -4,6 +4,14 @@ class GlobalInstance {
 
     public static readonly Instance: GlobalInstance = new GlobalInstance();
     public gameRoot: GameRoot = null;
+	
+	public globalSocket = null;
+	public hallSocket = null;//大厅
+    public queueSocket = null;//队列
+    public roomSocket = null;//房间
+    public gameManager = null;
+    public chessManager = null;
+    public stand = null;//你是黑方或白方
 
     private constructor() {
     }
@@ -23,6 +31,10 @@ class GlobalInstance {
     public enterReversi() {
         this.loadSceneWithProgress("reversi");
     }
+	
+	public enterReversiMatch() {
+		this.loadSceneWithProgress("match");
+	}
 
     public enter2048() {
         this.loadSceneWithProgress("2048");
@@ -89,6 +101,7 @@ class GlobalInstance {
             }, 1000);
         });
     }
+	
 }
 
 export const G = GlobalInstance.Instance;

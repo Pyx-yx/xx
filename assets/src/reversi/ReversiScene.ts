@@ -18,6 +18,7 @@ export class ReversiScene extends cc.Component {
     public state = NONE;
 
     start() {
+		G.gameRoot.tipPanel.active = true;
         this.board.init(this);
         this.ai = new ReversiAI(this.board);
         this.startGame();

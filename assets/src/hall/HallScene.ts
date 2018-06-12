@@ -4,7 +4,12 @@ const { ccclass, property } = cc._decorator;
 
 @ccclass
 export class HallScene extends cc.Component {
-
+	
+	start()
+	{
+		G.gameRoot.tipPanel.active = true;
+	}
+	
     onBtnGobang() {
         G.enterGobang();
     }
@@ -12,6 +17,10 @@ export class HallScene extends cc.Component {
     onBtnReversi() {
         G.enterReversi();
     }
+	
+	onBtnReversi() {
+        G.enterReversiMatch();
+	}
 
     onBtn2048() {
         G.enter2048();
