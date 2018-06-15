@@ -50,6 +50,7 @@ cc.Class({
         } else if (this.turn === STAND.WHITE) {
             this.turn = STAND.BLACK;
         }
+        G_1.G.chessManager.showEffect();
     },
 
     forceChangeTurn() {//无子可下换边
