@@ -12,7 +12,7 @@ export class GameRoot extends cc.Component {
     @property(cc.Node)
     private messageBtn2: cc.Node = null;
     @property(cc.Node)
-    private tipPanel:cc.Node = null;
+    public tipPanel: cc.Node = null;
     @property(cc.Label)
     private tipLabel:cc.Label = null;
 
@@ -51,7 +51,8 @@ export class GameRoot extends cc.Component {
         this.maskPanel.active = false;
     }
 
-    public showTip(tip:string) {
+    public showTip(tip: string) {
+        this.tipPanel.active = true;
         this.tipLabel.string = tip;
         this.tipPanel.getComponent(cc.Animation).play();
     }

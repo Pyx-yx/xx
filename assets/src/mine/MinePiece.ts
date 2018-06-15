@@ -1,4 +1,4 @@
-import { PIECE_STATE, PIECE_TYPE, PIECE_HINT } from "./MineConstans";
+import { PIECE_STATE, PIECE_TYPE } from "./MineConstans";
 
 const { ccclass, property } = cc._decorator;
 

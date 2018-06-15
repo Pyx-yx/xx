@@ -69,6 +69,28 @@ export class ReversiBoard extends cc.Component {
 
     }
 
+    public draw()
+    {
+        this.tileWidth = this.node.width / (this.colsSum + 1);
+        this.startX = this.tileWidth / 2;
+        this.startY = this.tileWidth / 2;
+        this.boardWidth = this.tileWidth * this.colsSum;
+        this.boardHeight = this.tileWidth * this.rowsSum;
+        this.graphics.clear();
+        this.graphics.strokeColor = cc.Color.BLACK;
+        for (let x = 0; x < this.colsSum + 1; x++) {
+            this.graphics.moveTo(this.startX + x * this.tileWidth, this.startY);
+            this.graphics.lineTo(this.startX + x * this.tileWidth, this.startY + this.boardHeight);
+            this.graphics.stroke();
+        }
+        for (let y = 0; y < this.rowsSum + 1; y++) {
+            this.graphics.moveTo(this.startX, this.startY + y * this.tileWidth);
+            this.graphics.lineTo(this.startX + this.boardWidth, this.startY + y * this.tileWidth);
+            this.graphics.stroke();
+        }
+    }
+     
+
     private refresh() {
         this.graphics2.clear();
         for (let x = 0; x < this.colsSum; x++) {
