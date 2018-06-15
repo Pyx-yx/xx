@@ -18,14 +18,10 @@ cc.Class({
         },
         blackScoreLabel: cc.Label,
         whiteScoreLabel: cc.Label,
-        //infoPanel: cc.Node,
-        //infoLabel: cc.Label
     },
-
-    // use this for initialization
+    
     onLoad: function () {
         G_1.G.gameManager = this;
-        //this.infoAnimation = this.infoPanel.getComponent(cc.Animation);
     },
 
     startGame() {
@@ -39,7 +35,6 @@ cc.Class({
             G_1.G.roomSocket.disconnect();
             cc.director.loadScene('menu');
         }
-        //this.infoAnimation.on('finished',onFinished,this);
         this.gameState = GAME_STATE.OVER;
         this.showInfo('game over');
     },
@@ -79,34 +74,28 @@ cc.Class({
                 G_1.G.gameRoot.showTip('你是蓝色方\n执黑棋先手');
             } else if (G_1.G.stand === STAND.WHITE) {
                 G_1.G.gameRoot.showTip('你是红色方\n执白棋后手');
-                //this.infoLabel.string = '你是红色方\n执白棋后手';
             }
             this.blackScoreLabel.string = blackChess + '';
             this.whiteScoreLabel.string = whiteChess + '';
         } else if (type === 'game over') {
             if (blackChess > whiteChess) {
                 G_1.G.gameRoot.showTip('游戏结束\n黑棋胜');
-                //this.infoLabel.string = '游戏结束\n黑棋胜';
             } else if (blackChess < whiteChess) {
                 G_1.G.gameRoot.showTip('游戏结束\n白棋胜');
-                //this.infoLabel.string = '游戏结束\n白棋胜';
             } else if (blackChess === whiteChess) {
                 G_1.G.gameRoot.showTip('游戏结束\n平局');
-                //this.infoLabel.string = '游戏结束\n平局';
             }
         } else if (type === 'force change turn') {
             if (G_1.G.stand === STAND.BLACK) {
                 G_1.G.gameRoot.showTip('黑方无子可下\n请白方下子');
-                //this.infoLabel.string = '黑方无子可下\n请白方下子';
             } else if (G_1.G.stand === STAND.WHITE) {
                 G_1.G.gameRoot.showTip('白方无子可下\n请黑方下子');
-                //this.infoLabel.string = '白方无子可下\n请黑方下子';
             }
         } else if (type == 'player Leave') {
-            G_1.G.gameRoot.showTip('你的对手离开了游戏\n你赢啦');
+            G_1.G.gameRoot.showMaskMessage("你的对手离开了游戏\n你赢啦！",
+                { label: "朕知道了", cb: () => { }, target: this });
             this.gameState = GAME_STATE.OVER;
         }
-        //this.infoAnimation.play();
     },
 
     onBtnReurn(){

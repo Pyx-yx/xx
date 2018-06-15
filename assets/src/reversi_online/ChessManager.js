@@ -18,8 +18,8 @@ cc.Class({
         startY: cc.number = 0,
         boardWidth: cc.number = 0, // 棋盘节点宽高
         boardHeight: cc.number = 0,
-        blackEffect: cc.Node,
-        whiteEffect: cc.Node,
+        blackEffect: cc.Node,//黑棋特效
+        whiteEffect: cc.Node,//白棋特效
         blackNode: cc.Node,
         whiteNode: cc.Node,
     },
@@ -27,7 +27,8 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
         G_1.G.chessManager = this;
-        this.chessWidth = this.node.width / (this.COL +1);
+        this.chessWidth = this.node.width / (this.COL + 1);
+        //棋盘上所有棋子节点初始化
         for (let x = 0; x < this.COL + 1; x++) {
             this.chesses[x] = [];
             for (let y = 0; y < this.ROW + 1; y++) {
@@ -35,13 +36,14 @@ cc.Class({
                 chessNode.parent = this.node;
                 chessNode.width = this.chessWidth - 5;
                 chessNode.height = this.chessWidth - 5;
-                chessNode.position = cc.p((x + 1) * this.chessWidth,  (y+1) * this.chessWidth);
+                chessNode.position = cc.p( (x + 1) * this.chessWidth, (y + 1) * this.chessWidth);
                 let chess = chessNode.getComponent('Chess');
                 chess.coor = cc.p(x, y);
                 this.chesses[x][y] = chess;
                 this.addTouchEvent(chess);
             }
         }
+        //初始棋子放置
         this.chesses[3][3].type = CHESS_TYPE.BLACK;
         this.chesses[3][4].type = CHESS_TYPE.WHITE;
         this.chesses[4][4].type = CHESS_TYPE.BLACK;
@@ -63,7 +65,7 @@ cc.Class({
             G_1.G.gameManager.playerLeave();
         });
 
-        //Board.draw();
+        //绘制棋盘
         this.tileWidth = this.node.width / (this.COL + 1);
         this.startX = this.tileWidth / 2;
         this.startY = this.tileWidth / 2;
@@ -96,14 +98,18 @@ cc.Class({
                                 break;
                             }
                             if (dir === 8) {
+                                G_1.G.gameRoot.showTip("不能下在这里哦");
                                 return;
                             }
                         }
 
                     }
+                    else {
+                        G_1.G.gameRoot.showTip("这里有子了");
+                    }
                 }
                 else {
-                    G_1.G.gameRoot.showTip("别心急，还没到你");
+                    G_1.G.gameRoot.showTip("别心急，还没轮到你");
                 }
             }
             else {

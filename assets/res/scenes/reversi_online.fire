@@ -1721,7 +1721,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 480,
+      "width": 420,
       "height": 60
     },
     "_rotationX": 0,
@@ -1758,7 +1758,7 @@
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
-    "_N$string": "认输（返回大厅）",
+    "_N$string": "认输/返回大厅",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
