@@ -2,8 +2,18 @@
   "appKey": "",
   "appSecret": "",
   "encryptJs": true,
-  "excludeScenes": [],
-  "fb-instant-games": {},
+  "excludeScenes": [
+    "25994a02-80cd-435f-a017-f6caf1d14590",
+    "8d12e6a3-aec3-4e33-801d-dadc70a2d82a",
+    "08834e40-3b7e-494e-b416-5b83679f01eb",
+    "04a4e05c-c5c3-4de0-8b70-bd523dc3769e",
+    "a288bbb8-63dc-495f-a35a-1392e692df53",
+    "d70f332d-7f41-46cf-bb41-0821add82e29",
+    "925e1614-c35e-4abb-bc20-939d1758352d",
+    "f0544f19-5b91-4127-bc2b-24c179be7dd5",
+    "9061454e-6583-4220-9bc6-f4bb72362d78",
+    "ad32314b-7d08-4c12-9c80-84515e1a27a7"
+  ],
   "includeAnySDK": false,
   "includeSDKBox": false,
   "inlineSpriteFrames": true,
@@ -21,10 +31,7 @@
   },
   "packageName": "org.cocos2d.so-many-games",
   "privateKey": "",
-  "qqplay": {
-    "orientation": "portrait"
-  },
-  "renderMode": "0",
+  "renderMode": "1",
   "startScene": "0d9c6e0e-87ab-4645-b677-aeb2f9594c3f",
   "title": "so-many-games",
   "webOrientation": "portrait",
