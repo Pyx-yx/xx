@@ -31,7 +31,7 @@
   },
   "packageName": "org.cocos2d.so-many-games",
   "privateKey": "",
-  "renderMode": "0",
+  "renderMode": "1",
   "startScene": "0d9c6e0e-87ab-4645-b677-aeb2f9594c3f",
   "title": "so-many-games",
   "webOrientation": "portrait",
