@@ -248,7 +248,7 @@ cc.Class({
 
     judgeWin() {
         let selfMoveAble = this.judgeMoveAble(G_1.G.gameManager.turn);
-        let oppoMoveAble = this.judgeMoveAble(-G_1.G.gameManager.trun);
+        let oppoMoveAble = this.judgeMoveAble(-G_1.G.gameManager.turn);
         if (selfMoveAble) {
             return;
         } else if (!selfMoveAble && oppoMoveAble) {

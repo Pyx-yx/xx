@@ -31,10 +31,7 @@ cc.Class({
     },
 
     endGame() {
-        let onFinished = () =>{
-            G_1.G.roomSocket.disconnect();
-            cc.director.loadScene('menu');
-        }
+        G_1.G.roomSocket.disconnect();
         this.gameState = GAME_STATE.OVER;
         this.showInfo('game over');
     },
@@ -54,6 +51,7 @@ cc.Class({
     },
 
     playerLeave() {
+        this.gameState = GAME_STATE.OVER;
         this.showInfo('player Leave');
     },
 
@@ -71,19 +69,35 @@ cc.Class({
         let whiteChess = chessCount[1];
         if (type === 'start game') {
             if (G_1.G.stand === STAND.BLACK) {
-                G_1.G.gameRoot.showTip('你是蓝色方\n执黑棋先手');
+                G_1.G.gameRoot.showTip('你是黑棋你先走');
             } else if (G_1.G.stand === STAND.WHITE) {
-                G_1.G.gameRoot.showTip('你是红色方\n执白棋后手');
+                G_1.G.gameRoot.showTip('你是白棋先等等');
             }
             this.blackScoreLabel.string = blackChess + '';
             this.whiteScoreLabel.string = whiteChess + '';
         } else if (type === 'game over') {
             if (blackChess > whiteChess) {
-                G_1.G.gameRoot.showTip('游戏结束\n黑棋胜');
+                if (G_1.G.stand === STAND.BLACK) {
+                    G_1.G.gameRoot.showMaskMessage("恭喜你\n你赢啦！",
+                        { label: "朕知道了", cb: () => { }, target: this });
+                }
+                else
+                {
+                    G_1.G.gameRoot.showMaskMessage("真是遗憾\n你输了。",
+                        { label: "朕知道了", cb: () => { }, target: this });
+                }
             } else if (blackChess < whiteChess) {
-                G_1.G.gameRoot.showTip('游戏结束\n白棋胜');
+                if (G_1.G.stand === STAND.WHITE) {
+                    G_1.G.gameRoot.showMaskMessage("恭喜你\n你赢啦！",
+                        { label: "朕知道了", cb: () => { }, target: this });
+                }
+                else {
+                    G_1.G.gameRoot.showMaskMessage("真是遗憾\n你输了。",
+                        { label: "朕知道了", cb: () => { }, target: this });
+                }
             } else if (blackChess === whiteChess) {
-                G_1.G.gameRoot.showTip('游戏结束\n平局');
+                G_1.G.gameRoot.showMaskMessage("棋逢敌手\n和棋了。",
+                    { label: "朕知道了", cb: () => { }, target: this });
             }
         } else if (type === 'force change turn') {
             if (G_1.G.stand === STAND.BLACK) {
@@ -94,7 +108,6 @@ cc.Class({
         } else if (type == 'player Leave') {
             G_1.G.gameRoot.showMaskMessage("你的对手离开了游戏\n你赢啦！",
                 { label: "朕知道了", cb: () => { }, target: this });
-            this.gameState = GAME_STATE.OVER;
         }
     },
 
