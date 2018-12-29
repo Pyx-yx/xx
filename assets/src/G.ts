@@ -13,7 +13,7 @@ class GlobalInstance {
     public chessManager = null;
     public stand = null;//你是黑方或白方
 
-    public ServerIP = "117.78.46.98:6455";
+    public ServerIP = "139.159.161.239:12002";
 
     private constructor() {
     }
