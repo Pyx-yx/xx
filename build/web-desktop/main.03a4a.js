@@ -170,7 +170,7 @@
     }
 
     if (window.jsb) {
-        require('src/settings.ca285.js');
+        require('src/settings.f181a.js');
         require('src/jsb_polyfill.js');
         boot();
     }
