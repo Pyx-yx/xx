@@ -261,7 +261,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 300,
+      "width": 385.4,
       "height": 100
     },
     "_rotationX": 0,
@@ -298,7 +298,7 @@
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
-    "_N$string": "黑白棋",
+    "_N$string": "黑白棋 1",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
